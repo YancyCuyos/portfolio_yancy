@@ -1,4 +1,4 @@
-/* Default Light Theme */
+/* LIGHT THEME */
 body {
     background-color: #ffffff;
     color: #000000;
@@ -24,13 +24,13 @@ section {
     padding: 20px;
 }
 
-/* Dark Theme */
+/* DARK THEME */
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
 }
 
-/* Button Styling */
+/* THEME BUTTON */
 #theme-toggle {
     padding: 10px 20px;
     font-size: 16px;
