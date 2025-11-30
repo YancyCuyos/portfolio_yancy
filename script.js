@@ -1,16 +1,15 @@
 const toggleButton = document.getElementById("theme-toggle");
 
-// Load saved theme if exists
+// Load saved theme
 if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
     toggleButton.textContent = "Light Mode";
 }
 
-// Button click event
+// Toggle theme on button click
 toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 
-    // Update button text
     if (document.body.classList.contains("dark-mode")) {
         toggleButton.textContent = "Light Mode";
         localStorage.setItem("theme", "dark");
