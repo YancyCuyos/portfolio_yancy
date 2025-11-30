@@ -6,7 +6,7 @@ if (localStorage.getItem("theme") === "dark") {
     toggleButton.textContent = "Light Mode";
 }
 
-// Toggle theme on button click
+// Toggle theme
 toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 
