@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background: linear-gradient(to right, #6a11cb, #2575fc);
       color: #fff;
       display: flex;
@@ -19,24 +19,31 @@
 
     .container {
       text-align: center;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
     }
 
     .quote-box {
       margin: 20px 0;
       font-size: 1.2rem;
-      min-height: 60px;
+      min-height: 70px;
     }
 
     #author {
       display: block;
       margin-top: 10px;
       font-style: italic;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      opacity: 0.8;
     }
 
     button {
@@ -47,45 +54,25 @@
       border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
     }
 
     button:hover {
       background-color: #e64a19;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-
   <div class="container">
     <h1>Random Quote Generator</h1>
-
     <div class="quote-box">
       <p id="quote">"Click the button to get a quote."</p>
       <span id="author"></span>
     </div>
-
     <button id="btn">Get Quote</button>
   </div>
 
   <script src="script.js"></script>
-  <script>
-    // Default quotes if script.js isn't loaded yet
-    const quotes = [
-      { quote: "The best way to predict the future is to invent it.", author: "Alan Kay" },
-      { quote: "Life is 10% what happens to us and 90% how we react to it.", author: "Charles R. Swindoll" },
-      { quote: "Do not watch the clock. Do what it does. Keep going.", author: "Sam Levenson" }
-    ];
-
-    const btn = document.getElementById("btn");
-    const quoteEl = document.getElementById("quote");
-    const authorEl = document.getElementById("author");
-
-    btn.addEventListener("click", () => {
-      const random = quotes[Math.floor(Math.random() * quotes.length)];
-      quoteEl.textContent = `"${random.quote}"`;
-      authorEl.textContent = `— ${random.author}`;
-    });
-  </script>
 </body>
 </html>
