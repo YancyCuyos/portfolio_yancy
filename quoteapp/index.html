@@ -15,6 +15,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
+      transition: background 0.5s ease;
     }
 
     .container {
@@ -25,6 +26,11 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       max-width: 500px;
       width: 90%;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.02);
     }
 
     h1 {
@@ -36,6 +42,7 @@
       margin: 20px 0;
       font-size: 1.2rem;
       min-height: 70px;
+      line-height: 1.5;
     }
 
     #author {
@@ -61,6 +68,18 @@
       background-color: #e64a19;
       transform: scale(1.05);
     }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      .quote-box {
+        font-size: 1rem;
+      }
+      button {
+        padding: 10px 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -73,6 +92,7 @@
     <button id="btn">Get Quote</button>
   </div>
 
+  <!-- Make sure script.js is in the same folder -->
   <script src="script.js"></script>
 </body>
 </html>
