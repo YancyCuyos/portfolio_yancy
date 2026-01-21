@@ -1,54 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earl Yancy Cuyos Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earl Yancy Cuyos Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 15px;
+      background: #6a11cb;
+      color: #fff;
+    }
+
+    #profile-img {
+      width: 120px;
+      border-radius: 50%;
+      margin: 15px 0;
+    }
+
+    #theme-toggle {
+      padding: 8px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff5722;
+      color: #fff;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    #theme-toggle:hover {
+      background-color: #e64a19;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 15px;
+    }
+
+    h2 {
+      color: #6a11cb;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #2575fc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1 id="name">Earl Yancy Cuyos</h1>
-    <img src="profile.jpg" alt="Profile Picture" id="profile-img">
-    <p id="course-year">BS Information System – 2nd Year</p>
-    <button id="theme-toggle">Dark Mode</button>
+  <h1 id="name">Earl Yancy Cuyos</h1>
+  <img src="profile.jpg" alt="Profile Picture" id="profile-img">
+  <p id="course-year">BS Information System – 2nd Year</p>
+  <button id="theme-toggle">Dark Mode</button>
 </header>
 
 <section id="achievements">
-    <h2>Achievements & Certifications</h2>
-    <ul>
-        <li>Dean’s Lister – Academic Excellence</li>
-        <li>Active Member – Tech & Programming Student Groups</li>
-        <li>Consistent Project Contributor – Web & UI/UX Outputs</li>
-    </ul>
+  <h2>Achievements & Certifications</h2>
+  <ul>
+    <li>Dean’s Lister – Academic Excellence</li>
+    <li>Active Member – Tech & Programming Student Groups</li>
+    <li>Consistent Project Contributor – Web & UI/UX Outputs</li>
+  </ul>
 </section>
 
 <section id="projects">
-    <h2>Previous Projects</h2>
-    <ul>
-        <li>
-            <strong>HKY E-Wallet</strong> – An international e-wallet that automatically converts money into the currency of the country you are traveling to.
-        </li>
+  <h2>Previous Projects</h2>
+  <ul>
+    <li>
+      <strong>HKY E-Wallet</strong> – An international e-wallet that automatically converts money into the currency of the country you are traveling to.
+    </li>
 
-        <li>
-            <strong>PART 3 WEB EXAM APP: Random Quote Generator</strong> – 
-            A responsive web application that fetches and displays quotes dynamically using a public REST API. 
-            <a href="https://yancycuyos.github.io/quote-generator/" target="_blank">View Project</a>
-        </li>
+    <li>
+      <strong>PART 3 WEB EXAM APP: Random Quote Generator</strong> – 
+      A responsive web application that fetches and displays quotes dynamically. 
+      <!-- Updated link to work in portfolio subfolder -->
+      <a href="quote-webapp-/index.html" target="_blank">View Project</a>
+    </li>
 
-        <li>
-            <strong>MP1: Replace All Spaces</strong> – 
-            <a href="MP1/index.html" target="_blank">View Project</a>
-        </li>
+    <li>
+      <strong>MP1: Replace All Spaces</strong> – 
+      <a href="MP1/index.html" target="_blank">View Project</a>
+    </li>
 
-        <li>
-            <strong>MP5: EmailCheck</strong> – 
-            <a href="MP5/index.html" target="_blank">View Project</a>
-        </li>
-    </ul>
+    <li>
+      <strong>MP5: EmailCheck</strong> – 
+      <a href="MP5/index.html" target="_blank">View Project</a>
+    </li>
+  </ul>
 </section>
 
 <script src="script.js"></script>
+<script>
+  // Optional: Simple Dark Mode toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+
+<style>
+  /* Dark Mode Styles */
+  .dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+  }
+
+  .dark-mode a {
+    color: #90caf9;
+  }
+
+  .dark-mode header {
+    background: #1a1a1a;
+  }
+</style>
+
 </body>
 </html>
