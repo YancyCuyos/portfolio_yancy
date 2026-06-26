@@ -1,86 +1,465 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Earl Yancy Cuyos Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Earl Yancy Cuyos | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#101213",
+            "on-tertiary-container": "#7c7d7e",
+            "surface": "#131313",
+            "primary": "#c8c6c5",
+            "surface-container-highest": "#353535",
+            "on-primary-container": "#7e7d7d",
+            "on-secondary": "#00363d",
+            "inverse-surface": "#e4e2e1",
+            "on-tertiary-fixed": "#1a1c1c",
+            "primary-fixed-dim": "#c8c6c5",
+            "primary-container": "#121212",
+            "on-surface-variant": "#c4c7c7",
+            "surface-dim": "#131313",
+            "outline-variant": "#444748",
+            "background": "#131313",
+            "on-surface": "#e4e2e1",
+            "secondary-fixed": "#9cf0ff",
+            "on-primary": "#313030",
+            "on-secondary-fixed": "#001f24",
+            "on-primary-fixed": "#1c1b1b",
+            "surface-container-low": "#1b1c1c",
+            "on-background": "#e4e2e1",
+            "inverse-primary": "#5f5e5e",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "surface-container": "#1f2020",
+            "secondary": "#bdf4ff",
+            "tertiary": "#c6c6c7",
+            "on-secondary-container": "#00616d",
+            "surface-container-high": "#2a2a2a",
+            "secondary-container": "#00e3fd",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-variant": "#353535",
+            "outline": "#8e9192",
+            "secondary-fixed-dim": "#00daf3",
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "container-max": "1280px",
+            "margin-mobile": "20px",
+            "gutter": "32px",
+            "unit": "8px",
+            "section-gap": "120px",
+            "component-gap": "24px"
+          },
+          fontFamily: {
+            "headline-md": ["Inter"],
+            "body-md": ['"Source Serif 4"'],
+            "display-lg": ["Inter"],
+            "body-lg": ['"Source Serif 4"'],
+            "display-lg-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          fontSize: {
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+            "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #131313;
+      color: #e4e2e1;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .cyan-glow:hover {
+      box-shadow: 0 0 30px rgba(0, 227, 253, 0.15);
+    }
+    .timeline-line {
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(200,198,197,0.4), transparent);
+    }
+    .project-card:hover .project-arrow {
+      transform: translateX(4px);
+    }
+    #theme-toggle-btn {
+      transition: all 0.3s ease;
+    }
+    html.light body {
+      background-color: #f5f5f5;
+      color: #1a1a1a;
+    }
+    html.light nav {
+      background-color: rgba(245,245,245,0.85);
+      border-color: rgba(0,0,0,0.1);
+    }
+    html.light .bg-surface { background-color: #efefef; }
+    html.light .bg-surface-container-high { background-color: #e0e0e0; }
+    html.light .bg-surface-container-low { background-color: #e8e8e8; }
+    html.light .text-on-surface { color: #1a1a1a; }
+    html.light .text-on-surface-variant { color: #444; }
+    html.light .text-on-tertiary-container { color: #555; }
+    html.light .border-white\/10 { border-color: rgba(0,0,0,0.1); }
+    html.light .border-white\/5 { border-color: rgba(0,0,0,0.07); }
+  </style>
 </head>
-<body>
+<body class="selection:bg-secondary-container selection:text-on-secondary-fixed">
 
-<header>
-  <h1 id="name">Earl Yancy Cuyos</h1>
-  <img src="profile.jpg" alt="Profile Picture" id="profile-img">
-  <p id="course-year">BS Information System – 2nd Year</p>
-  <button id="theme-toggle">Dark Mode</button>
-</header>
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-white/10 h-20">
+  <div class="flex justify-between items-center h-full px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+    <div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter">
+      EARL CUYOS
+    </div>
+    <div class="hidden md:flex items-center gap-gutter font-label-md text-label-md">
+      <a href="#home" class="text-primary font-bold border-b-2 border-primary pb-1 transition-all">Home</a>
+      <a href="#projects" class="text-on-surface-variant hover:text-on-surface transition-colors">Projects</a>
+      <a href="#achievements" class="text-on-surface-variant hover:text-on-surface transition-colors">Achievements</a>
+      <a href="#contact" class="text-on-surface-variant hover:text-on-surface transition-colors">Contact</a>
+    </div>
+    <button id="theme-toggle-btn" class="border border-white/20 text-on-surface px-5 py-2 font-label-md text-label-md transition-all hover:bg-white/5 active:scale-95 uppercase tracking-widest text-xs">
+      Light Mode
+    </button>
+  </div>
+</nav>
 
-<section id="achievements">
-  <h2>Achievements & Certifications</h2>
-  <ul>
-    <li>Dean’s Lister – Academic Excellence</li>
-    <li>Active Member – Tech & Programming Student Groups</li>
-    <li>Consistent Project Contributor – Web & UI/UX Outputs</li>
-  </ul>
-</section>
+<main class="pt-20">
 
-<section id="projects">
-  <h2>Previous Projects</h2>
-  <ul>
-    <li>
-      <strong>HKY E-Wallet</strong> – An international e-wallet that automatically converts money into the currency of the country you are traveling to.
-    </li>
+  <!-- Hero -->
+  <section id="home" class="relative min-h-[780px] flex items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto py-section-gap overflow-hidden">
+    <div class="relative z-10 max-w-4xl">
+      <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-4 block">BS Information System — 2nd Year</span>
+      <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-component-gap">
+        Building Things<br/>That Actually Work.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+        Student developer focused on web applications, UI/UX, and turning class requirements into things worth showing off.
+      </p>
+      <div class="flex flex-wrap gap-component-gap">
+        <a href="#projects" class="bg-secondary-container text-on-secondary-fixed px-10 py-4 font-label-md text-label-md transition-all hover:scale-105 cyan-glow active:scale-95 uppercase tracking-widest inline-block">
+          View Projects
+        </a>
+        <a href="#contact" class="border border-white/20 text-on-surface px-10 py-4 font-label-md text-label-md transition-all hover:bg-white/5 active:scale-95 uppercase tracking-widest inline-block">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <li>
-      <strong>M1 Part 3 Exam: Random Quote Generator</strong> – 
-      A responsive web application that fetches and displays quotes dynamically using a public REST API. 
-      <a href="https://yancycuyos.github.io/quote-webapp-/" target="_blank">View Project</a>
-    </li>
+  <!-- Projects Section -->
+  <section id="projects" class="px-margin-mobile md:px-gutter max-w-container-max mx-auto py-section-gap">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-unit">
+      <div>
+        <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em]">Portfolio</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Previous Projects</h2>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+        A growing collection of web applications and academic outputs.
+      </p>
+    </div>
 
-    <li>
-      <strong>MP1: Replace All Spaces</strong> – 
-      <a href="MP1/index.html" target="_blank">View Project</a>
-    </li>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-component-gap md:gap-x-12 md:gap-y-16">
 
-    <li>
-      <strong>MP5: EmailCheck</strong> – 
-      <a href="MP5/index.html" target="_blank">View Project</a>
-    </li>
+      <!-- Project: HKY E-Wallet -->
+      <div class="group cursor-pointer project-card border border-white/5 hover:border-secondary/20 bg-surface-container-high p-8 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="material-symbols-outlined text-4xl text-secondary-container">account_balance_wallet</span>
+          <span class="font-label-md text-label-md text-on-surface-variant opacity-30 text-[12px]">CONCEPT</span>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="font-label-md text-[10px] text-secondary border border-secondary/30 px-2 py-0.5 uppercase">Fintech</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-secondary-container transition-colors">HKY E-Wallet</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">An international e-wallet that automatically converts money into the currency of the country you're traveling to.</p>
+      </div>
 
-    <li>
-      <strong>Cozy Cornery</strong> – 
-      A web application for Cozy Cornery’s store showcasing products, menu, and ordering system.
-      <a href="https://thecozycorneryancycuyos-cc7g.vercel.app/" target="_blank">View Project</a>
-    </li>
+      <!-- Project: Random Quote Generator -->
+      <div class="group cursor-pointer project-card border border-white/5 hover:border-secondary/20 bg-surface-container-high p-8 transition-all duration-300 md:mt-12">
+        <div class="flex justify-between items-start mb-6">
+          <span class="material-symbols-outlined text-4xl text-secondary-container">format_quote</span>
+          <span class="font-label-md text-label-md text-on-surface-variant opacity-30 text-[12px]">REST API</span>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="font-label-md text-[10px] text-secondary border border-secondary/30 px-2 py-0.5 uppercase">Web App</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-secondary-container transition-colors">Random Quote Generator</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6">A responsive web app that fetches and displays quotes dynamically using a public REST API. Built for M1 Part 3 Exam.</p>
+        <a href="https://yancycuyos.github.io/quote-webapp-/" target="_blank" class="inline-flex items-center gap-2 font-label-md text-label-md text-secondary-container hover:text-secondary transition-colors">
+          <span>View Live</span>
+          <span class="material-symbols-outlined text-[18px] project-arrow transition-transform">arrow_forward</span>
+        </a>
+      </div>
 
-    <li>
-      <strong>WebApp Demo</strong> – 
-      A demonstration web application showcasing interactive features and UI components.
-      <a href="https://cuyos-webapp-demo-l47b.vercel.app/" target="_blank">View Project</a>
-    </li>
+      <!-- Project: SmartQueue PH -->
+      <div class="group cursor-pointer project-card border border-white/5 hover:border-secondary/20 bg-surface-container-high p-8 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="material-symbols-outlined text-4xl text-secondary-container">queue</span>
+          <span class="font-label-md text-label-md text-on-surface-variant opacity-30 text-[12px]">FULL STACK</span>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="font-label-md text-[10px] text-secondary border border-secondary/30 px-2 py-0.5 uppercase">UI/UX</span>
+          <span class="font-label-md text-[10px] text-on-surface-variant border border-white/10 px-2 py-0.5 uppercase">2-in-1</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-secondary-container transition-colors">SmartQueue PH</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6">Virtual queue and appointment management system for school enrollment services — includes both a user portal and admin dashboard.</p>
+        <div class="flex gap-4">
+          <a href="https://samplesmartqueue.vercel.app/" target="_blank" class="inline-flex items-center gap-2 font-label-md text-label-md text-secondary-container hover:text-secondary transition-colors">
+            <span>User Portal</span>
+            <span class="material-symbols-outlined text-[18px] project-arrow transition-transform">arrow_forward</span>
+          </a>
+          <a href="https://samplesmartqueue.vercel.app/admin.html" target="_blank" class="inline-flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+            <span>Admin</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
 
-    <li>
-      <strong>Cuyos_FA2</strong> – 
-      A final assessment web project demonstrating core web development skills.
-      <a href="https://yancycuyos.github.io/Cuyos_FA2/" target="_blank">View Project</a>
-    </li>
+      <!-- Project: Cozy Cornery -->
+      <div class="group cursor-pointer project-card border border-white/5 hover:border-secondary/20 bg-surface-container-high p-8 transition-all duration-300 md:mt-12">
+        <div class="flex justify-between items-start mb-6">
+          <span class="material-symbols-outlined text-4xl text-secondary-container">storefront</span>
+          <span class="font-label-md text-label-md text-on-surface-variant opacity-30 text-[12px]">E-COMMERCE</span>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="font-label-md text-[10px] text-secondary border border-secondary/30 px-2 py-0.5 uppercase">Web App</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-secondary-container transition-colors">Cozy Cornery</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6">Web application for a store showcasing products, menu, and an ordering system.</p>
+        <a href="https://thecozycorneryancycuyos-cc7g.vercel.app/" target="_blank" class="inline-flex items-center gap-2 font-label-md text-label-md text-secondary-container hover:text-secondary transition-colors">
+          <span>View Live</span>
+          <span class="material-symbols-outlined text-[18px] project-arrow transition-transform">arrow_forward</span>
+        </a>
+      </div>
 
-    <li>
-      <strong>SmartQueue PH (User Portal)</strong> – 
-      A virtual queue and appointment management system designed for school enrollment services.
-      <a href="https://samplesmartqueue.vercel.app/" target="_blank">View Project</a>
-    </li>
+      <!-- Project: WebApp Demo -->
+      <div class="group cursor-pointer project-card border border-white/5 hover:border-secondary/20 bg-surface-container-high p-8 transition-all duration-300">
+        <div class="flex justify-between items-start mb-6">
+          <span class="material-symbols-outlined text-4xl text-secondary-container">widgets</span>
+          <span class="font-label-md text-label-md text-on-surface-variant opacity-30 text-[12px]">DEMO</span>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="font-label-md text-[10px] text-secondary border border-secondary/30 px-2 py-0.5 uppercase">Frontend</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-secondary-container transition-colors">WebApp Demo</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6">A demonstration web application showcasing interactive features and UI components.</p>
+        <a href="https://cuyos-webapp-demo-l47b.vercel.app/" target="_blank" class="inline-flex items-center gap-2 font-label-md text-label-md text-secondary-container hover:text-secondary transition-colors">
+          <span>View Live</span>
+          <span class="material-symbols-outlined text-[18px] project-arrow transition-transform">arrow_forward</span>
+        </a>
+      </div>
 
-    <li>
-      <strong>SmartQueue PH (Admin Dashboard)</strong> – 
-      Administrative dashboard used to manage queues, appointments, and enrollment services.
-      <a href="https://samplesmartqueue.vercel.app/admin.html" target="_blank">View Project</a>
-    </li>
+      <!-- Project: Cuyos FA2 + MPs bundle -->
+      <div class="group cursor-pointer project-card border border-white/5 hover:border-secondary/20 bg-surface-container-high p-8 transition-all duration-300 md:mt-12">
+        <div class="flex justify-between items-start mb-6">
+          <span class="material-symbols-outlined text-4xl text-secondary-container">school</span>
+          <span class="font-label-md text-label-md text-on-surface-variant opacity-30 text-[12px]">ACADEMIC</span>
+        </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="font-label-md text-[10px] text-secondary border border-secondary/30 px-2 py-0.5 uppercase">Coursework</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-secondary-container transition-colors">Academic Outputs</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-6">Course deliverables — MP1 (Replace All Spaces), MP5 (EmailCheck), and Final Assessment FA2 demonstrating core web dev skills.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="MP1/index.html" target="_blank" class="font-label-md text-label-md text-on-surface-variant hover:text-secondary-container transition-colors underline underline-offset-4">MP1</a>
+          <a href="MP5/index.html" target="_blank" class="font-label-md text-label-md text-on-surface-variant hover:text-secondary-container transition-colors underline underline-offset-4">MP5</a>
+          <a href="https://yancycuyos.github.io/Cuyos_FA2/" target="_blank" class="font-label-md text-label-md text-on-surface-variant hover:text-secondary-container transition-colors underline underline-offset-4">FA2</a>
+        </div>
+      </div>
 
-  </ul>
-</section>
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <!-- Achievements Section -->
+  <section id="achievements" class="bg-surface-container-low py-section-gap overflow-hidden">
+    <div class="px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+        <div class="md:col-span-4 sticky top-32">
+          <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em]">Recognition</span>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-component-gap">Achievements &amp; Certifications</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Academic milestones and community involvement that go beyond the classroom.
+          </p>
+        </div>
+        <div class="md:col-span-7 md:col-start-6 space-y-component-gap">
+
+          <div class="p-8 bg-surface-container-high border border-white/5 hover:border-secondary/20 transition-all duration-300 group">
+            <div class="flex justify-between items-center mb-6">
+              <span class="material-symbols-outlined text-4xl text-secondary-container group-hover:scale-110 transition-transform">emoji_events</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Dean's Lister</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Recognized for academic excellence — consistently maintaining grades that qualify for the Dean's List.</p>
+          </div>
+
+          <div class="p-8 bg-surface-container-high border border-white/5 hover:border-secondary/20 transition-all duration-300 group">
+            <div class="flex justify-between items-center mb-6">
+              <span class="material-symbols-outlined text-4xl text-secondary-container group-hover:scale-110 transition-transform">groups</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Active Member — Tech &amp; Programming Groups</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Engaged participant in student-led tech and programming communities, contributing to collaborative learning and events.</p>
+          </div>
+
+          <div class="p-8 bg-surface-container-high border border-white/5 hover:border-secondary/20 transition-all duration-300 group">
+            <div class="flex justify-between items-center mb-6">
+              <span class="material-symbols-outlined text-4xl text-secondary-container group-hover:scale-110 transition-transform">code</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Consistent Project Contributor</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">Regularly delivers web and UI/UX outputs across group and individual projects, maintaining high standards of quality and completion.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Profile Section -->
+  <section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto py-section-gap">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+      <!-- Portrait -->
+      <div class="md:col-span-4">
+        <div class="relative group">
+          <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-container-high flex items-center justify-center">
+            <img id="profile-img" src="profile.jpg" alt="Earl Yancy Cuyos" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"/>
+            <div style="display:none" class="absolute inset-0 flex flex-col items-center justify-center gap-4">
+              <span class="material-symbols-outlined text-7xl text-on-surface-variant">person</span>
+              <p class="font-label-md text-label-md text-on-surface-variant">profile.jpg</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-component-gap">
+          <h2 class="font-headline-md text-headline-md text-on-surface">Earl Yancy Cuyos</h2>
+          <p class="font-label-md text-label-md text-on-tertiary-container uppercase tracking-widest mt-1">BS Information System — 2nd Year</p>
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="md:col-span-7 md:col-start-6">
+        <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em]">About</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-8">Studying. Building. Shipping.</h2>
+        <div class="space-y-6 max-w-2xl">
+          <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            I'm a second-year BS Information Systems student with a focus on building functional, well-designed web applications. My work spans frontend development, UI/UX, and practical systems that solve real problems.
+          </p>
+          <p class="font-body-md text-body-md text-on-tertiary-container">
+            From fintech concepts to queue management systems, I enjoy taking an idea from wireframe to something live and usable. Every project in my portfolio was built with that goal in mind.
+          </p>
+        </div>
+
+        <!-- Skills -->
+        <div class="mt-12 pt-8 border-t border-white/10">
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-8">Technical Skills</h3>
+          <div class="grid grid-cols-2 gap-component-gap">
+            <div>
+              <p class="font-label-md text-label-md text-on-tertiary-container uppercase tracking-widest mb-4">Frontend</p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2 font-label-md text-label-md text-on-surface"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span>HTML / CSS</li>
+                <li class="flex items-center gap-2 font-label-md text-label-md text-on-surface"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span>JavaScript</li>
+                <li class="flex items-center gap-2 font-label-md text-label-md text-on-surface"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span>REST APIs</li>
+                <li class="flex items-center gap-2 font-label-md text-label-md text-on-surface"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span>Responsive Design</li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-label-md text-label-md text-on-tertiary-container uppercase tracking-widest mb-4">Tools & More</p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2 font-label-md text-label-md text-on-surface"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span>GitHub / Vercel</li>
+                <li class="flex items-center gap-2 font-label-md text-label-md text-on-surface"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span>UI/UX Concepts</li>
+                <li class="flex items-center gap-2 font-label-md text-label-md text-on-surface"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span>Information Systems</li>
+                <li class="flex items-center gap-2 font-label-md text-label-md text-on-surface"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span>Web App Architecture</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Contact -->
+  <section id="contact" class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] mb-4 block">Contact</span>
+      <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-component-gap">Let's connect.</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Open to collaborations, internships, or just a good conversation about tech and design.</p>
+      <a href="mailto:earlcuyos@email.com" class="inline-block bg-secondary-container text-on-secondary-fixed px-12 py-5 font-label-md text-label-md transition-all hover:scale-105 active:scale-95 uppercase tracking-widest cyan-glow">
+        Send a Message
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-component-gap border-t border-white/10 bg-surface">
+  <div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto gap-component-gap">
+    <div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tighter">
+      EARL CUYOS
+    </div>
+    <div class="font-body-md text-body-md text-on-tertiary-container text-center">
+      © 2024 Earl Yancy Cuyos. BS Information System.
+    </div>
+    <div class="flex gap-unit">
+      <a href="#projects" class="font-label-md text-label-md text-on-tertiary-container hover:text-primary transition-colors">Projects</a>
+      <span class="text-white/10">/</span>
+      <a href="#achievements" class="font-label-md text-label-md text-on-tertiary-container hover:text-primary transition-colors">Achievements</a>
+      <span class="text-white/10">/</span>
+      <a href="#contact" class="font-label-md text-label-md text-on-tertiary-container hover:text-primary transition-colors">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('h2, .project-card, .p-8, section > div').forEach(el => {
+      el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+      observer.observe(el);
+    });
+
+    // Theme toggle
+    const btn = document.getElementById('theme-toggle-btn');
+    btn.addEventListener('click', () => {
+      const html = document.documentElement;
+      if (html.classList.contains('light')) {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        btn.textContent = 'Light Mode';
+      } else {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        btn.textContent = 'Dark Mode';
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
-
